@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Handball Stats Hub v2</title>
+
+<meta name="theme-color" content="#1565c0">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<header>
+
+<h1>Handball Stats Hub</h1>
+
+<div class="header-buttons">
+
+<button id="newMatchBtn">
+NEW MATCH
+</button>
+
+<button id="analysisBtn">
+ANALYSIS
+</button>
+
+<button id="settingBtn">
+SETTINGS
+</button>
+
+</div>
+
+</header>
+
+<section id="matchInfo">
+
+<div class="row">
+
+<div class="item">
+
+<label>DATE</label>
+
+<input
+type="date"
+id="matchDate">
+
+</div>
+
+<div class="item">
+
+<label>TEAM</label>
+
+<input
+type="text"
+id="teamName"
+placeholder="Opponent">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="item">
+
+<label>HALF</label>
+
+<select id="halfSelect">
+
+<option>1st</option>
+
+<option>2nd</option>
+
+<option>ET</option>
+
+</select>
+
+</div>
+
+<div class="item">
+
+<label>SCORE</label>
+
+<div class="scoreBox">
+
+<input
+type="number"
+id="ourScore"
+value="0">
+
+<span>:</span>
+
+<input
+type="number"
+id="theirScore"
+value="0">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="timerSection">
+
+<div id="timer">
+
+00:00
+
+</div>
+
+<div class="timerButtons">
+
+<button id="startBtn">
+START
+</button>
+
+<button id="stopBtn">
+STOP
+</button>
+
+<button id="resetBtn">
+RESET
+</button>
+
+</div>
+
+</section>
+
+<section id="courtSection">
+
+<div id="court">
+
+<div class="goal"></div>
+
+<div class="sixLine"></div>
+
+<div class="nineLine"></div>
+
+<div class="centerLine"></div>
+
+<div class="courtPlayers">
+
+<button class="player" data-pos="LW">LW</button>
+
+<button class="player" data-pos="LB">LB</button>
+
+<button class="player" data-pos="CB">CB</button>
+
+<button class="player" data-pos="RB">RB</button>
+
+<button class="player" data-pos="RW">RW</button>
+
+<button class="player" data-pos="PV">PV</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- TEAMS PAGE -->
+<!-- ========================= -->
+
+<section
+id="teamsPage"
+class="page">
+
+<div class="pageHeader">
+
+<h2>
+
+Teams
+
+</h2>
+
+<button
+id="addTeamButton"
+class="primaryButton">
+
+＋ Add Team
+
+</button>
+
+</div>
+
+<div class="toolbar">
+
+<input
+type="text"
+id="teamSearch"
+placeholder="Search Team">
+
+<select id="teamCategory">
+
+<option value="">
+
+All Categories
+
+</option>
+
+<option>
+
+Junior High
+
+</option>
+
+<option>
+
+High School
+
+</option>
+
+<option>
+
+University
+
+</option>
+
+<option>
+
+Club
+
+</option>
+
+<option>
+
+Professional
+
+</option>
+
+</select>
+
+</div>
+
+<div
+id="teamGrid"
+class="cardGrid">
+
+<!-- teams.js -->
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- TEAM DETAIL PAGE -->
+<!-- ========================= -->
+
+<section
+id="teamDetailPage"
+class="page">
+
+<div class="pageHeader">
+
+<button
+id="backToTeams">
+
+← Back
+
+</button>
+
+<h2>
+
+Team Detail
+
+</h2>
+
+</div>
+
+<div class="detailLayout">
+
+<div class="detailCard">
+
+<div class="teamLogo">
+
+<img
+id="teamLogoPreview"
+src="icons/team-default.png"
+alt="Team Logo">
+
+</div>
+
+<h2 id="detailTeamName">
+
+Sample Team
+
+</h2>
+
+<p id="detailCategory">
+
+University
+
+</p>
+
+</div>
+
+<div class="detailCard">
+
+<h3>
+
+Season Record
+
+</h3>
+
+<table class="infoTable">
+
+<tr>
+
+<th>
+
+Wins
+
+</th>
+
+<td id="teamWins">
+
+0
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Losses
+
+</th>
+
+<td id="teamLosses">
+
+0
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Draws
+
+</th>
+
+<td id="teamDraws">
+
+0
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Goals
+
+</th>
+
+<td id="teamGoals">
+
+0
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Against
+
+</th>
+
+<td id="teamAgainst">
+
+0
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<h3>
+
+Players
+
+</h3>
+
+<div
+id="teamPlayers"
+class="cardGrid">
+
+<!-- players.js -->
+
+</div>
+
+<h3>
+
+Matches
+
+</h3>
+
+<div
+id="teamMatches"
+class="tableContainer">
+
+<!-- matches.js -->
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- ADD TEAM MODAL -->
+<!-- ========================= -->
+
+<div
+id="teamModal"
+class="modal hidden">
+
+<div class="modalContent">
+
+<div class="modalHeader">
+
+<h2>
+
+Create Team
+
+</h2>
+
+<button
+class="closeModal">
+
+×
+
+</button>
+
+</div>
+
+<div class="formGrid">
+
+<div class="formItem">
+
+<label>
+
+Team Name
+
+</label>
+
+<input
+type="text"
+id="teamNameInput">
+
+</div>
+
+<div class="formItem">
+
+<label>
+
+Category
+
+</label>
+
+<select
+id="teamCategoryInput">
+
+<option>
+
+Junior High
+
+</option>
+
+<option>
+
+High School
+
+</option>
+
+<option>
+
+University
+
+</option>
+
+<option>
+
+Club
+
+</option>
+
+<option>
+
+Professional
+
+</option>
+
+</select>
+
+</div>
+
+<div class="formItem">
+
+<label>
+
+Coach
+
+</label>
+
+<input
+type="text"
+id="coachInput">
+
+</div>
+
+<div class="formItem">
+
+<label>
+
+Home Court
+
+</label>
+
+<input
+type="text"
+id="homeCourtInput">
+
+</div>
+
+<div class="formItem">
+
+<label>
+
+Primary Color
+
+</label>
+
+<input
+type="color"
+id="primaryColor">
+
+</div>
+
+<div class="formItem">
+
+<label>
+
+Secondary Color
+
+</label>
+
+<input
+type="color"
+id="secondaryColor">
+
+</div>
+
+<div class="formItem full">
+
+<label>
+
+Team Logo
+
+</label>
+
+<input
+type="file"
+id="teamLogo"
+accept="image/*">
+
+</div>
+
+<div class="formItem full">
+
+<label>
+
+Notes
+
+</label>
+
+<textarea
+id="teamMemo">
+
+</textarea>
+
+</div>
+
+</div>
+
+<div class="modalFooter">
+
+<button
+id="cancelTeam">
+
+Cancel
+
+</button>
+
+<button
+id="saveTeam"
+class="primaryButton">
+
+Save Team
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+  <section id="historySection">
+
+    <div class="sectionHeader">
+
+        <h2>MATCH HISTORY</h2>
+
+        <div class="historyControls">
+
+            <button id="undoBtn">
+                UNDO
+            </button>
+
+            <button id="clearHistoryBtn">
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="historyList">
+
+        <!-- game.jsで履歴を生成 -->
+
+    </div>
+
+</section>
+
+
+<section id="saveSection">
+
+    <button id="saveMatchBtn" class="primary">
+        SAVE MATCH
+    </button>
+
+    <button id="exportBtn">
+        EXPORT JSON
+    </button>
+
+    <button id="importBtn">
+        IMPORT JSON
+    </button>
+
+    <input
+        type="file"
+        id="importFile"
+        accept=".json"
+        hidden
+    >
+
+</section>
+
+
+<section id="cloudSection">
+
+    <h2>CLOUD</h2>
+
+    <div class="cloudButtons">
+
+        <button id="syncBtn">
+            FIREBASE SYNC
+        </button>
+
+        <button id="downloadBtn">
+            DOWNLOAD DATA
+        </button>
+
+    </div>
+
+</section>
+
+
+<div id="matchListModal" class="modal hidden">
+
+    <div class="modalContent">
+
+        <div class="modalHeader">
+
+            <h2>Saved Matches</h2>
+
+            <button class="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div id="savedMatchList">
+
+            <!-- storage.js -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="analysisModal" class="modal hidden">
+
+    <div class="modalContent large">
+
+        <div class="modalHeader">
+
+            <h2>Analysis</h2>
+
+            <button class="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div id="analysisContent">
+
+            <div id="teamAnalysis"></div>
+
+            <div id="playerAnalysis"></div>
+
+            <div id="goalkeeperAnalysis"></div>
+
+            <div id="shotChart"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- MATCHES PAGE -->
+<!-- ===================================================== -->
+
+<section id="matchesPage" class="page">
+
+    <div class="pageHeader">
+
+        <h2>Matches</h2>
+
+        <button
+            id="newMatchBtn"
+            class="primaryButton">
+
+            + New Match
+
+        </button>
+
+    </div>
+
+    <div class="toolbar">
+
+        <input
+            type="text"
+            id="matchSearch"
+            placeholder="Search opponent">
+
+        <select id="teamFilter">
+
+            <option value="">All Teams</option>
+
+        </select>
+
+        <select id="seasonFilter">
+
+            <option value="">Season</option>
+
+        </select>
+
+        <select id="competitionFilter">
+
+            <option value="">Competition</option>
+
+        </select>
+
+    </div>
+
+    <div id="matchList">
+
+        <!-- matches.js -->
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- NEW MATCH -->
+<!-- ===================================================== -->
+
+<section id="newMatchPage" class="page">
+
+    <div class="pageHeader">
+
+        <button id="backMatchList">
+
+            ← Back
+
+        </button>
+
+        <h2>
+
+            Create Match
+
+        </h2>
+
+    </div>
+
+
+    <div class="formGrid">
+
+        <div class="formItem">
+
+            <label>
+
+                Date
+
+            </label>
+
+            <input
+                type="date"
+                id="matchDate">
+
+        </div>
+
+        <div class="formItem">
+
+            <label>
+
+                Team
+
+            </label>
+
+            <select id="homeTeam">
+
+            </select>
+
+        </div>
+
+        <div class="formItem">
+
+            <label>
+
+                Opponent
+
+            </label>
+
+            <input
+                type="text"
+                id="opponent">
+
+        </div>
+
+        <div class="formItem">
+
+            <label>
+
+                Competition
+
+            </label>
+
+            <input
+                type="text"
+                id="competition">
+
+        </div>
+
+        <div class="formItem">
+
+            <label>
+
+                Venue
+
+            </label>
+
+            <input
+                type="text"
+                id="venue">
+
+        </div>
+
+        <div class="formItem">
+
+            <label>
+
+                Season
+
+            </label>
+
+            <input
+                type="text"
+                id="season">
+
+        </div>
+
+        <div class="formItem full">
+
+            <label>
+
+                Match Memo
+
+            </label>
+
+            <textarea
+                id="matchMemo">
+
+            </textarea>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+
+        Starting Players
+
+    </h3>
+
+    <div id="startingPlayerList">
+
+        <!-- players.js -->
+
+    </div>
+
+
+    <h3>
+
+        Goalkeepers
+
+    </h3>
+
+    <div id="goalkeeperList">
+
+        <!-- players.js -->
+
+    </div>
+
+
+    <div class="pageButtons">
+
+        <button
+            id="cancelMatch">
+
+            Cancel
+
+        </button>
+
+        <button
+            id="saveMatchInfo"
+            class="primaryButton">
+
+            Save Match
+
+        </button>
+
+        <button
+            id="startLiveMatch"
+            class="successButton">
+
+            Start Live Input
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- MATCH DETAIL -->
+<!-- ===================================================== -->
+
+<section id="matchDetailPage" class="page">
+
+    <div class="pageHeader">
+
+        <button
+            id="backMatchPage">
+
+            ← Back
+
+        </button>
+
+        <h2>
+
+            Match Detail
+
+        </h2>
+
+    </div>
+
+    <div class="dashboardGrid">
+
+        <div class="dashboardCard">
+
+            <h3>
+
+                Score
+
+            </h3>
+
+            <h1 id="matchScore">
+
+                0 - 0
+
+            </h1>
+
+        </div>
+
+        <div class="dashboardCard">
+
+            <h3>
+
+                Result
+
+            </h3>
+
+            <h1 id="matchResult">
+
+                -
+
+            </h1>
+
+        </div>
+
+        <div class="dashboardCard">
+
+            <h3>
+
+                Opponent
+
+            </h3>
+
+            <h1 id="detailOpponent">
+
+                -
+
+            </h1>
+
+        </div>
+
+        <div class="dashboardCard">
+
+            <h3>
+
+                Date
+
+            </h3>
+
+            <h1 id="detailDate">
+
+                -
+
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+
+        Match Statistics
+
+    </h3>
+
+    <div id="matchStatistics">
+
+        <!-- analysis.js -->
+
+    </div>
+
+
+    <h3>
+
+        Timeline
+
+    </h3>
+
+    <div id="matchTimeline">
+
+        <!-- live.js -->
+
+    </div>
+
+
+    <h3>
+
+        Players
+
+    </h3>
+
+    <div id="matchPlayers">
+
+        <!-- players.js -->
+
+    </div>
+
+
+    <div class="pageButtons">
+
+        <button
+            id="continueLive">
+
+            Continue Live
+
+        </button>
+
+        <button
+            id="matchAnalysisButton">
+
+            Open Analysis
+
+        </button>
+
+        <button
+            id="deleteMatch"
+            class="dangerButton">
+
+            Delete Match
+
+        </button>
+
+    </div>
+
+</section>
+
+  <div id="positionGrid">
+
+    <button class="positionBtn" data-position="LW">
+        <span class="position">LW</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="PV">
+        <span class="position">PV</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="RW">
+        <span class="position">RW</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="LB">
+        <span class="position">LB</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn active" data-position="CB">
+        <span class="position">CB</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="RB">
+        <span class="position">RB</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="GK">
+        <span class="position">GK</span>
+        <span class="number">#</span>
+    </button>
+
+    <button class="positionBtn" data-position="EP">
+        <span class="position">EP</span>
+        <span class="number">#</span>
+    </button>
+
+    <div class="positionBlank"></div>
+
+</div>
