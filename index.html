@@ -595,3 +595,197 @@ OPPONENT
 </div>
 
 </section>
+
+  <!-- ==========================
+MATCH INFORMATION
+========================== -->
+
+<div id="matchInformation" class="hidden">
+
+<div class="panel">
+
+<h2>
+
+MATCH INFORMATION
+
+</h2>
+
+<div class="infoGrid">
+
+<label>
+
+Date
+
+<input
+type="date"
+id="matchDate">
+
+</label>
+
+<label>
+
+Competition
+
+<input
+type="text"
+id="competition">
+
+</label>
+
+<label>
+
+Venue
+
+<input
+type="text"
+id="venue">
+
+</label>
+
+<label>
+
+Our Team
+
+<input
+type="text"
+id="ourTeamName">
+
+</label>
+
+<label>
+
+Opponent
+
+<input
+type="text"
+id="opponentTeamName">
+
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+LOADING
+========================== -->
+
+<div id="loadingScreen" class="hidden">
+
+<div class="loader"></div>
+
+<p>
+
+Loading...
+
+</p>
+
+</div>
+
+<!-- ==========================
+TOAST
+========================== -->
+
+<div
+id="toast"
+class="toast">
+
+Saved
+
+</div>
+
+<!-- ==========================
+MODAL
+========================== -->
+
+<div
+id="modal"
+class="hidden">
+
+<div class="modalContent">
+
+<h2 id="modalTitle">
+
+Confirmation
+
+</h2>
+
+<p id="modalMessage">
+
+</p>
+
+<div class="modalButtons">
+
+<button id="modalCancel">
+
+Cancel
+
+</button>
+
+<button id="modalOk">
+
+OK
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+FIREBASE
+========================== -->
+
+<script type="module" src="firebase.js"></script>
+
+<!-- ==========================
+APPLICATION
+========================== -->
+
+<script src="timer.js"></script>
+
+<script src="storage.js"></script>
+
+<script src="analysis.js"></script>
+
+<script src="game.js"></script>
+
+<script src="main.js"></script>
+
+<!-- ==========================
+PWA
+========================== -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+window.addEventListener("load", () => {
+
+navigator.serviceWorker.register("./service-worker.js")
+
+.then(() => {
+
+console.log("Service Worker Registered");
+
+})
+
+.catch((err) => {
+
+console.error(err);
+
+});
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
