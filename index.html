@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Handball Stats Hub v2</title>
+
+<meta name="theme-color" content="#1565c0">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<header>
+
+<h1>Handball Stats Hub</h1>
+
+<div class="header-buttons">
+
+<button id="newMatchBtn">
+NEW MATCH
+</button>
+
+<button id="analysisBtn">
+ANALYSIS
+</button>
+
+<button id="settingBtn">
+SETTINGS
+</button>
+
+</div>
+
+</header>
+
+<section id="matchInfo">
+
+<div class="row">
+
+<div class="item">
+
+<label>DATE</label>
+
+<input
+type="date"
+id="matchDate">
+
+</div>
+
+<div class="item">
+
+<label>TEAM</label>
+
+<input
+type="text"
+id="teamName"
+placeholder="Opponent">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="item">
+
+<label>HALF</label>
+
+<select id="halfSelect">
+
+<option>1st</option>
+
+<option>2nd</option>
+
+<option>ET</option>
+
+</select>
+
+</div>
+
+<div class="item">
+
+<label>SCORE</label>
+
+<div class="scoreBox">
+
+<input
+type="number"
+id="ourScore"
+value="0">
+
+<span>:</span>
+
+<input
+type="number"
+id="theirScore"
+value="0">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="timerSection">
+
+<div id="timer">
+
+00:00
+
+</div>
+
+<div class="timerButtons">
+
+<button id="startBtn">
+START
+</button>
+
+<button id="stopBtn">
+STOP
+</button>
+
+<button id="resetBtn">
+RESET
+</button>
+
+</div>
+
+</section>
+
+<section id="courtSection">
+
+<div id="court">
+
+<div class="goal"></div>
+
+<div class="sixLine"></div>
+
+<div class="nineLine"></div>
+
+<div class="centerLine"></div>
+
+<div class="courtPlayers">
+
+<button class="player" data-pos="LW">LW</button>
+
+<button class="player" data-pos="LB">LB</button>
+
+<button class="player" data-pos="CB">CB</button>
+
+<button class="player" data-pos="RB">RB</button>
+
+<button class="player" data-pos="RW">RW</button>
+
+<button class="player" data-pos="PV">PV</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="inputSection">
+
+    <div class="panel">
+
+        <h2>SHOT COURSE</h2>
+
+        <div id="shotGrid">
+
+            <button class="shotCourse" data-course="LT">↖</button>
+            <button class="shotCourse" data-course="CT">↑</button>
+            <button class="shotCourse" data-course="RT">↗</button>
+
+            <button class="shotCourse" data-course="LM">←</button>
+            <button class="shotCourse" data-course="CM">●</button>
+            <button class="shotCourse" data-course="RM">→</button>
+
+            <button class="shotCourse" data-course="LB">↙</button>
+            <button class="shotCourse" data-course="CB">↓</button>
+            <button class="shotCourse" data-course="RB">↘</button>
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>RESULT</h2>
+
+        <div id="resultButtons">
+
+            <button class="resultBtn goal" data-result="GOAL">
+                GOAL
+            </button>
+
+            <button class="resultBtn save" data-result="SAVE">
+                SAVE
+            </button>
+
+            <button class="resultBtn miss" data-result="MISS">
+                MISS
+            </button>
+
+            <button class="resultBtn post" data-result="POST">
+                POST
+            </button>
+
+            <button class="resultBtn block" data-result="BLOCK">
+                BLOCK
+            </button>
+
+            <button class="resultBtn out" data-result="OUT">
+                OUT
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="eventSection">
+
+    <h2>EVENT INPUT</h2>
+
+    <div class="eventButtons">
+
+        <button class="eventBtn" data-event="ASSIST">
+            ASSIST
+        </button>
+
+        <button class="eventBtn" data-event="TURNOVER">
+            TURNOVER
+        </button>
+
+        <button class="eventBtn" data-event="STEAL">
+            STEAL
+        </button>
+
+        <button class="eventBtn" data-event="BLOCK">
+            BLOCK
+        </button>
+
+        <button class="eventBtn" data-event="FOUL">
+            FOUL
+        </button>
+
+        <button class="eventBtn" data-event="PENALTY">
+            7m
+        </button>
+
+        <button class="eventBtn" data-event="FASTBREAK">
+            FAST BREAK
+        </button>
+
+        <button class="eventBtn" data-event="SUSPENSION">
+            2 MIN
+        </button>
+
+    </div>
+
+</section>
+
+<section id="goalkeeperSection">
+
+    <h2>GOALKEEPER</h2>
+
+    <div class="gkButtons">
+
+        <button class="gkBtn" data-gk="SAVE">
+            SAVE
+        </button>
+
+        <button class="gkBtn" data-gk="GOAL">
+            GOAL
+        </button>
+
+        <button class="gkBtn" data-gk="POST">
+            POST
+        </button>
+
+        <button class="gkBtn" data-gk="OUT">
+            OUT
+        </button>
+
+        <button class="gkBtn" data-gk="BLOCK">
+            BLOCK
+        </button>
+
+    </div>
+
+</section>
+
+  <section id="historySection">
+
+    <div class="sectionHeader">
+
+        <h2>MATCH HISTORY</h2>
+
+        <div class="historyControls">
+
+            <button id="undoBtn">
+                UNDO
+            </button>
+
+            <button id="clearHistoryBtn">
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="historyList">
+
+        <!-- game.jsで履歴を生成 -->
+
+    </div>
+
+</section>
+
+
+<section id="saveSection">
+
+    <button id="saveMatchBtn" class="primary">
+        SAVE MATCH
+    </button>
+
+    <button id="exportBtn">
+        EXPORT JSON
+    </button>
+
+    <button id="importBtn">
+        IMPORT JSON
+    </button>
+
+    <input
+        type="file"
+        id="importFile"
+        accept=".json"
+        hidden
+    >
+
+</section>
+
+
+<section id="cloudSection">
+
+    <h2>CLOUD</h2>
+
+    <div class="cloudButtons">
+
+        <button id="syncBtn">
+            FIREBASE SYNC
+        </button>
+
+        <button id="downloadBtn">
+            DOWNLOAD DATA
+        </button>
+
+    </div>
+
+</section>
+
+
+<div id="matchListModal" class="modal hidden">
+
+    <div class="modalContent">
+
+        <div class="modalHeader">
+
+            <h2>Saved Matches</h2>
+
+            <button class="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div id="savedMatchList">
+
+            <!-- storage.js -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="analysisModal" class="modal hidden">
+
+    <div class="modalContent large">
+
+        <div class="modalHeader">
+
+            <h2>Analysis</h2>
+
+            <button class="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div id="analysisContent">
+
+            <div id="teamAnalysis"></div>
+
+            <div id="playerAnalysis"></div>
+
+            <div id="goalkeeperAnalysis"></div>
+
+            <div id="shotChart"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+  <div id="settingsModal" class="modal hidden">
+
+    <div class="modalContent">
+
+        <div class="modalHeader">
+
+            <h2>Settings</h2>
+
+            <button class="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="settingsBody">
+
+            <div class="settingItem">
+
+                <label for="teamColor">
+                    Team Color
+                </label>
+
+                <input
+                    type="color"
+                    id="teamColor"
+                    value="#1565c0"
+                >
+
+            </div>
+
+            <div class="settingItem">
+
+                <label for="darkMode">
+                    Dark Mode
+                </label>
+
+                <input
+                    type="checkbox"
+                    id="darkMode"
+                >
+
+            </div>
+
+            <div class="settingItem">
+
+                <label for="autoSave">
+                    Auto Save
+                </label>
+
+                <input
+                    type="checkbox"
+                    id="autoSave"
+                    checked
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="loadingScreen" class="hidden">
+
+    <div class="spinner"></div>
+
+    <p>Loading...</p>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+<footer>
+
+    <small>
+
+        Handball Stats Hub v2
+
+    </small>
+
+</footer>
+
+</div>
+
+<script src="timer.js"></script>
+<script src="storage.js"></script>
+<script src="analysis.js"></script>
+<script src="firebase.js"></script>
+<script src="game.js"></script>
+<script src="main.js"></script>
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker.register("service-worker.js");
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+  
