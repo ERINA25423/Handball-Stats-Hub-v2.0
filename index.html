@@ -203,84 +203,6 @@ START MATCH
 <!-- GAME PAGE -->
 <!-- ===================================== -->
 
-<section
-id="gamePage"
-class="page">
-
-<header class="gameHeader">
-
-<div class="teamSwitcher">
-
-<button
-class="teamButton active"
-id="ourSideButton">
-
-OUR
-
-</button>
-
-<button
-class="teamButton"
-id="opponentSideButton">
-
-OPP
-
-</button>
-
-</div>
-
-<div class="timerArea">
-
-<div id="gameTimer">
-
-00:00
-
-</div>
-
-<div class="timerButtons">
-
-<button id="startTimerButton">
-
-▶
-
-</button>
-
-<button id="pauseTimerButton">
-
-⏸
-
-</button>
-
-<button id="resetTimerButton">
-
-↺
-
-</button>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- ====================== -->
-<!-- COURT -->
-<!-- ====================== -->
-
-<div class="courtCard">
-
-<h3>
-
-POSITION
-
-</h3>
-
-<div class="courtGrid">
-
-<button class="positionButton">LW</button>
-
-<button class="positionButton">LP</button>
-
 <button class="positionButton">LB</button>
 
 <button class="positionButton">CB</button>
@@ -473,6 +395,381 @@ Fast
 </div>
 
 </section>
+
+              <button class="positionButton">
+
+                <span class="positionName">
+
+                    LW
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    PV
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    RW
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    LB
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    CB
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    RB
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    GK
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+            <button class="positionButton">
+
+                <span class="positionName">
+
+                    EP
+
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="2"
+                    class="playerNumber"
+                    placeholder="#">
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SHOT COURSE -->
+    <!-- ========================= -->
+
+    <section class="coursePanel">
+
+        <h2>
+
+            SHOT COURSE
+
+        </h2>
+
+        <div class="courseGrid">
+
+                      <button class="courseButton">
+
+                LT
+
+            </button>
+
+            <button class="courseButton">
+
+                CT
+
+            </button>
+
+            <button class="courseButton">
+
+                RT
+
+            </button>
+
+            <button class="courseButton">
+
+                LM
+
+            </button>
+
+            <button class="courseButton">
+
+                CM
+
+            </button>
+
+            <button class="courseButton">
+
+                RM
+
+            </button>
+
+            <button class="courseButton">
+
+                LB
+
+            </button>
+
+            <button class="courseButton">
+
+                CB
+
+            </button>
+
+            <button class="courseButton">
+
+                RB
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SHOT TYPE -->
+    <!-- ========================= -->
+
+    <section class="shotTypePanel">
+
+        <h2>
+
+            SHOT TYPE
+
+        </h2>
+
+        <div class="shotTypeList">
+
+            <button class="shotTypeButton">
+
+                Normal
+
+            </button>
+
+            <button class="shotTypeButton">
+
+                Fast Break
+
+            </button>
+
+            <button class="shotTypeButton">
+
+                7m
+
+            </button>
+
+            <button class="shotTypeButton">
+
+                Breakthrough
+
+            </button>
+
+            <button class="shotTypeButton">
+
+                Other
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- RESULT -->
+    <!-- ========================= -->
+
+    <section class="resultPanel">
+
+        <h2>
+
+            RESULT
+
+        </h2>
+
+        <div class="resultList">
+
+                      <button class="resultButton goal">
+
+                GOAL
+
+            </button>
+
+            <button class="resultButton save">
+
+                SAVED
+
+            </button>
+
+            <button class="resultButton miss">
+
+                MISS
+
+            </button>
+
+            <button class="resultButton block">
+
+                BLOCK
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- MEMO -->
+    <!-- ========================= -->
+
+    <section class="memoPanel">
+
+        <h2>
+
+            MEMO
+
+        </h2>
+
+        <textarea
+            id="memo"
+            placeholder="Notes..."></textarea>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- BOTTOM BAR -->
+    <!-- ========================= -->
+
+    <footer class="bottomPanel">
+
+        <button
+            id="otherButton"
+            class="bottomButton">
+
+            OTHER
+
+        </button>
+
+        <button
+            id="historyButton"
+            class="bottomButton">
+
+            HISTORY
+
+        </button>
+
+        <button
+            id="undoButton"
+            class="bottomButton">
+
+            UNDO
+
+        </button>
+
+        <button
+            id="halfButton"
+            class="bottomButton">
+
+            CHANGE HALF
+
+        </button>
+
+        <button
+            id="saveEventButton"
+            class="saveEventButton">
+
+            SAVE EVENT
+
+        </button>
+
+        <button
+            id="finishMatchButton"
+            class="finishButton">
+
+            END & SAVE MATCH
+
+        </button>
+
+    </footer>
+
+</div>
+
+</section>
+
+  
+
 
 <!-- ===================================== -->
 <!-- MATCH HISTORY PAGE -->
