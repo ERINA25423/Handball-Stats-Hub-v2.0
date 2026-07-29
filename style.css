@@ -1,0 +1,1557 @@
+/* =======================================
+   RESET
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    background:#111827;
+
+    color:#ffffff;
+
+    font-family:
+    "Inter",
+    "Noto Sans JP",
+    sans-serif;
+
+    overflow:hidden;
+
+}
+
+/* =======================================
+   APP
+======================================= */
+
+#app{
+
+    width:100vw;
+    height:100vh;
+
+    background:#111827;
+
+}
+
+/* =======================================
+   PAGE
+======================================= */
+
+.page{
+
+    display:none;
+
+    width:100%;
+    height:100%;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+/* =======================================
+   HEADER
+======================================= */
+
+.pageHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:24px;
+
+}
+
+.pageHeader h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.backButton{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1f2937;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.backButton:hover{
+
+    background:#374151;
+
+}
+
+/* =======================================
+   HOME
+======================================= */
+
+.homeHeader{
+
+    text-align:center;
+
+    margin-top:50px;
+
+}
+
+.homeHeader h1{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.homeHeader p{
+
+    color:#9ca3af;
+
+    font-size:18px;
+
+}
+
+/* =======================================
+   LOGO
+======================================= */
+
+.homeLogo{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:60px 0;
+
+}
+
+.logoCircle{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:80px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+/* =======================================
+   HOME BUTTONS
+======================================= */
+
+.homeButtons{
+
+    width:100%;
+    max-width:420px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* =======================================
+   BUTTON
+======================================= */
+
+button{
+
+    font-family:inherit;
+
+}
+
+.primaryButton{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.primaryButton:hover{
+
+    background:#1d4ed8;
+
+}
+
+.primaryButton:active{
+
+    transform:scale(.98);
+
+}
+
+.secondaryButton{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#1f2937;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.secondaryButton:hover{
+
+    background:#374151;
+
+}
+
+.large{
+
+    height:68px;
+
+    font-size:20px;
+
+}
+
+.dangerButton{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#dc2626;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.dangerButton:hover{
+
+    background:#b91c1c;
+
+}
+
+/* =======================================
+   CARD
+======================================= */
+
+.card{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    margin-bottom:24px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+}
+
+.card label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    font-size:15px;
+
+    color:#d1d5db;
+
+}
+
+.card input{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:white;
+
+    padding:0 16px;
+
+    font-size:16px;
+
+}
+
+.card input::placeholder{
+
+    color:#6b7280;
+
+}
+
+.bottomArea{
+
+    margin-top:20px;
+
+}
+
+/* =======================================
+   GAME HEADER
+======================================= */
+
+.gameHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:24px;
+
+}
+
+.teamSwitcher{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.teamButton{
+
+    width:72px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1f2937;
+
+    color:#d1d5db;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.teamButton.active{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.timerArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+#gameTimer{
+
+    min-width:110px;
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+.timerButtons{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.timerButtons button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1f2937;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.timerButtons button:hover{
+
+    background:#374151;
+
+}
+
+/* =======================================
+   SECTION CARD
+======================================= */
+
+.courtCard,
+.shotCard,
+.typeCard,
+.resultCard,
+.memoCard{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+}
+
+.courtCard h3,
+.shotCard h3,
+.typeCard h3,
+.resultCard h3,
+.memoCard h3{
+
+    margin-bottom:16px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+/* =======================================
+   POSITION
+======================================= */
+
+.courtGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+.positionButton{
+
+    height:54px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.positionButton:hover{
+
+    background:#2563eb;
+
+}
+
+.positionButton.selected{
+
+    background:#2563eb;
+
+}
+
+/* =======================================
+   SHOT COURSE
+======================================= */
+
+.shotGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.shotCell{
+
+    aspect-ratio:1/1;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.shotCell:hover{
+
+    background:#2563eb;
+
+}
+
+.shotCell.selected{
+
+    background:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.35);
+
+}
+
+/* =======================================
+   SHOT TYPE
+======================================= */
+
+.typeGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.typeButton{
+
+    height:52px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.typeButton:hover{
+
+    background:#2563eb;
+
+}
+
+.typeButton.selected{
+
+    background:#2563eb;
+
+}
+
+/* =======================================
+   RESULT
+======================================= */
+
+.resultGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.resultButton{
+
+    height:60px;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.resultButton:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.resultButton.goal{
+
+    background:#16a34a;
+
+}
+
+.resultButton.save{
+
+    background:#2563eb;
+
+}
+
+.resultButton.miss{
+
+    background:#ea580c;
+
+}
+
+.resultButton.block{
+
+    background:#7c3aed;
+
+}
+
+/* =======================================
+   MEMO
+======================================= */
+
+.memoCard textarea{
+
+    width:100%;
+
+    min-height:120px;
+
+    resize:vertical;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:#ffffff;
+
+    padding:16px;
+
+    font-size:16px;
+
+    line-height:1.5;
+
+}
+
+.memoCard textarea::placeholder{
+
+    color:#6b7280;
+
+}
+
+/* =======================================
+   BOTTOM MENU
+======================================= */
+
+.bottomMenu{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:24px;
+
+}
+
+.bottomMenu button{
+
+    height:52px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1f2937;
+
+    color:#ffffff;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.bottomMenu button:hover{
+
+    background:#374151;
+
+}
+
+#saveEventButton{
+
+    grid-column:1 / 4;
+
+    height:60px;
+
+}
+
+/* =======================================
+   END MATCH
+======================================= */
+
+.endMatchArea{
+
+    margin-top:20px;
+
+    margin-bottom:30px;
+
+}
+
+.endMatchArea .dangerButton{
+
+    width:100%;
+
+    height:62px;
+
+}
+
+/* =======================================
+   HISTORY
+======================================= */
+
+.historyList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.historyCard{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.historyCard h3{
+
+    font-size:20px;
+
+    margin-bottom:10px;
+
+}
+
+.historyCard p{
+
+    color:#d1d5db;
+
+    margin-bottom:6px;
+
+}
+
+.historyCard button{
+
+    margin-top:14px;
+
+    width:100%;
+
+}
+
+/* =======================================
+   ANALYSIS TABS
+======================================= */
+
+.analysisTabs{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:24px;
+
+}
+
+.tabButton{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#1f2937;
+
+    color:#d1d5db;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.tabButton:hover{
+
+    background:#374151;
+
+}
+
+.tabButton.active{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+/* =======================================
+   TAB CONTENT
+======================================= */
+
+.tabContent{
+
+    display:none;
+
+}
+
+.tabContent.active{
+
+    display:block;
+
+}
+
+/* =======================================
+   ANALYSIS GRID
+======================================= */
+
+.statsGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.statCard{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+}
+
+.statCard h4{
+
+    font-size:15px;
+
+    color:#9ca3af;
+
+    margin-bottom:12px;
+
+    font-weight:600;
+
+}
+
+.statCard p{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#ffffff;
+
+}
+
+/* =======================================
+   PLAYER ANALYSIS
+======================================= */
+
+.playerAnalysisList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.playerCard{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+}
+
+.playerCard h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.playerStats{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.playerStat{
+
+    background:#111827;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.playerStat span{
+
+    font-size:14px;
+
+    color:#9ca3af;
+
+    margin-bottom:8px;
+
+}
+
+.playerStat strong{
+
+    font-size:28px;
+
+    color:#ffffff;
+
+    font-weight:800;
+
+}
+
+/* =======================================
+   GOALKEEPER
+======================================= */
+
+.goalkeeperCard{
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+}
+
+.goalkeeperCard h3{
+
+    text-align:center;
+
+    font-size:24px;
+
+    margin-bottom:24px;
+
+    font-weight:700;
+
+}
+
+/* =======================================
+   SCROLL BAR
+======================================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#374151;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#4b5563;
+
+}
+
+/* =======================================
+   FOCUS
+======================================= */
+
+button:focus,
+input:focus,
+textarea:focus{
+
+    outline:2px solid #3b82f6;
+
+    outline-offset:2px;
+
+}
+
+/* =======================================
+   SELECTION
+======================================= */
+
+::selection{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+/* =======================================
+   ANIMATION
+======================================= */
+
+.page{
+
+    animation:fadeIn .25s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+button{
+
+    transition:
+        background .2s,
+        transform .15s,
+        box-shadow .2s;
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* =======================================
+   TABLET (LANDSCAPE)
+======================================= */
+
+@media (min-width:768px){
+
+.page{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:28px;
+
+}
+
+.homeButtons{
+
+    max-width:500px;
+
+}
+
+.card{
+
+    padding:28px;
+
+}
+
+.courtGrid{
+
+    grid-template-columns:repeat(7,1fr);
+
+}
+
+.shotGrid{
+
+    max-width:420px;
+
+    margin:0 auto;
+
+}
+
+.typeGrid{
+
+    grid-template-columns:repeat(6,1fr);
+
+}
+
+.resultGrid{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.statsGrid{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.playerStats{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.bottomMenu{
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+}
+
+#saveEventButton{
+
+    grid-column:auto;
+
+    height:52px;
+
+}
+
+.endMatchArea{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.endMatchArea .dangerButton{
+
+    width:320px;
+
+}
+
+}
+
+/* =======================================
+   DESKTOP
+======================================= */
+
+@media (min-width:1200px){
+
+.page{
+
+    max-width:1400px;
+
+}
+
+.homeHeader h1{
+
+    font-size:54px;
+
+}
+
+#gameTimer{
+
+    font-size:42px;
+
+}
+
+.logoCircle{
+
+    width:210px;
+
+    height:210px;
+
+    font-size:100px;
+
+}
+
+}
+
+/* =======================================
+   MOBILE SAFE AREA
+======================================= */
+
+:root{
+
+    --safe-top:env(safe-area-inset-top);
+    --safe-bottom:env(safe-area-inset-bottom);
+
+}
+
+body{
+
+    padding-top:var(--safe-top);
+    padding-bottom:var(--safe-bottom);
+
+}
+
+/* =======================================
+   UTILITIES
+======================================= */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.center{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.textCenter{
+
+    text-align:center;
+
+}
+
+.fullWidth{
+
+    width:100%;
+
+}
+
+.mt10{
+
+    margin-top:10px;
+
+}
+
+.mt20{
+
+    margin-top:20px;
+
+}
+
+.mt30{
+
+    margin-top:30px;
+
+}
+
+.mb10{
+
+    margin-bottom:10px;
+
+}
+
+.mb20{
+
+    margin-bottom:20px;
+
+}
+
+.mb30{
+
+    margin-bottom:30px;
+
+}
+
+/* =======================================
+   LOADING
+======================================= */
+
+.loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:200px;
+
+}
+
+.loading::after{
+
+    content:"";
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:4px solid #374151;
+
+    border-top-color:#2563eb;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* =======================================
+   EMPTY STATE
+======================================= */
+
+.emptyState{
+
+    text-align:center;
+
+    color:#9ca3af;
+
+    padding:80px 20px;
+
+}
+
+.emptyState h3{
+
+    margin-bottom:12px;
+
+    font-size:24px;
+
+}
+
+.emptyState p{
+
+    line-height:1.7;
+
+    font-size:16px;
+
+}
+
+/* =======================================
+   FOOTER
+======================================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:40px 0;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+}
+
+/* =======================================
+   END OF STYLE.CSS
+======================================= */
+
+
+
+
