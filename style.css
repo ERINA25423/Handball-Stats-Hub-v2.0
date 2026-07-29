@@ -1,0 +1,1157 @@
+/* =======================================================
+   Handball Stats Hub v2
+   style.css
+   Part 1
+======================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --primary: #1d4ed8;
+    --primary-dark: #1e40af;
+
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+
+    --bg: #eef4fb;
+    --panel: #ffffff;
+
+    --border: #d6dde8;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+    --radius: 14px;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+    min-height:100vh;
+
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+#header{
+
+    height:70px;
+
+    background:var(--primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+#titleArea h1{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+#headerRight{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+}
+
+#halfDisplay{
+
+    background:white;
+
+    color:var(--primary);
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-weight:bold;
+
+}
+
+#timerDisplay{
+
+    min-width:110px;
+
+    text-align:center;
+
+    background:#111827;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+TOP CONTROL
+=========================== */
+
+#topControls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    gap:20px;
+
+}
+
+#teamSwitcher{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+#timerControls{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* =======================================================
+   Part 2
+   Main Layout / Panels
+======================================================= */
+
+/* ===========================
+MAIN
+=========================== */
+
+#mainContainer{
+
+    display:grid;
+
+    grid-template-columns:
+
+        280px
+        1fr
+        280px;
+
+    gap:18px;
+
+    padding:18px;
+
+    min-height:calc(100vh - 170px);
+
+}
+
+#leftPanel,
+#centerPanel,
+#rightPanel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* ===========================
+PANEL
+=========================== */
+
+.panel{
+
+    background:var(--panel);
+
+    border-radius:var(--radius);
+
+    padding:18px;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+}
+
+.panel h2{
+
+    margin-bottom:15px;
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+/* ===========================
+POSITION
+=========================== */
+
+.positionRow{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+.positionButton{
+
+    width:70px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    padding:10px;
+
+}
+
+.numberInput{
+
+    flex:1;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+/* ===========================
+GK
+=========================== */
+
+.gkRow{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+#gkNumber{
+
+    width:80px;
+
+}
+
+#gkName{
+
+    flex:1;
+
+}
+
+#gkNumber,
+#gkName{
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+}
+
+/* ===========================
+MEMO
+=========================== */
+
+#memo{
+
+    width:100%;
+
+    resize:none;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:12px;
+
+    font-size:15px;
+
+    min-height:170px;
+
+    outline:none;
+
+}
+
+#memo:focus{
+
+    border-color:var(--primary);
+
+}
+
+/* ===========================
+COMMON INPUT
+=========================== */
+
+input,
+textarea{
+
+    background:white;
+
+    color:var(--text);
+
+}
+
+input:focus,
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(29,78,216,.15);
+
+}
+
+/* =======================================================
+   Part 3
+   Shot Course / Shot Type / Result
+======================================================= */
+
+/* ===========================
+SHOT COURSE
+=========================== */
+
+#shotGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.course,
+.shot-course{
+
+    height:70px;
+
+    background:#f8fafc;
+
+    border:2px solid var(--border);
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    transition:.2s;
+
+}
+
+.course:hover,
+.shot-course:hover{
+
+    background:#dbeafe;
+
+    border-color:var(--primary);
+
+}
+
+.course.active,
+.shot-course.active,
+.course.selected,
+.shot-course.selected{
+
+    background:var(--primary);
+
+    color:white;
+
+    border-color:var(--primary);
+
+}
+
+/* ===========================
+SHOT TYPE
+=========================== */
+
+#shotTypeList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.shotType{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    border:2px solid var(--border);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    text-align:left;
+
+}
+
+.shotType:hover{
+
+    background:#dbeafe;
+
+    border-color:var(--primary);
+
+}
+
+.shotType.active,
+.shotType.selected{
+
+    background:var(--primary);
+
+    color:white;
+
+    border-color:var(--primary);
+
+}
+
+/* ===========================
+RESULT
+=========================== */
+
+#resultList{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+.result{
+
+    padding:14px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+Result Colors
+=========================== */
+
+.goal{
+
+    background:#16a34a;
+
+}
+
+.save{
+
+    background:#2563eb;
+
+}
+
+.miss{
+
+    background:#dc2626;
+
+}
+
+.block{
+
+    background:#7c3aed;
+
+}
+
+.post{
+
+    background:#f59e0b;
+
+}
+
+.out{
+
+    background:#64748b;
+
+}
+
+.passive{
+
+    background:#ea580c;
+
+}
+
+.turnover{
+
+    background:#991b1b;
+
+}
+
+/* ===========================
+Active Result
+=========================== */
+
+.result.active,
+.result.selected{
+
+    outline:4px solid rgba(255,255,255,.6);
+
+    transform:scale(.97);
+
+}
+
+/* =======================================================
+   Part 4
+   Bottom Bar / History / Toast / Modal
+======================================================= */
+
+/* ===========================
+BOTTOM BAR
+=========================== */
+
+#bottomBar{
+
+    position:sticky;
+
+    bottom:0;
+
+    background:white;
+
+    border-top:1px solid var(--border);
+
+    box-shadow:0 -4px 12px rgba(0,0,0,.08);
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:10px;
+
+    padding:15px;
+
+}
+
+#bottomBar button{
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+}
+
+#bottomBar button:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ===========================
+HISTORY PANEL
+=========================== */
+
+#historyPanel{
+
+    position:fixed;
+
+    top:0;
+
+    right:-420px;
+
+    width:420px;
+
+    height:100vh;
+
+    background:white;
+
+    box-shadow:-6px 0 18px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    overflow-y:auto;
+
+    z-index:1000;
+
+    padding:20px;
+
+}
+
+#historyPanel.open{
+
+    right:0;
+
+}
+
+#historyPanel h2{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+#myHistory,
+#opponentHistory{
+
+    margin-bottom:30px;
+
+}
+
+.history-item{
+
+    background:#f8fafc;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:10px;
+
+    margin-bottom:10px;
+
+    display:grid;
+
+    grid-template-columns:
+        55px
+        60px
+        1fr
+        70px;
+
+    gap:10px;
+
+    align-items:center;
+
+    font-size:14px;
+
+}
+
+/* ===========================
+TOAST
+=========================== */
+
+.toast{
+
+    position:fixed;
+
+    bottom:100px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#111827;
+
+    color:white;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:3000;
+
+}
+
+.toast.show{
+
+    opacity:1;
+
+}
+
+/* ===========================
+LOADING
+=========================== */
+
+#loadingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,255,255,.9);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:5000;
+
+}
+
+.loader{
+
+    width:60px;
+
+    height:60px;
+
+    border:6px solid #ddd;
+
+    border-top:6px solid var(--primary);
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================
+MODAL
+=========================== */
+
+#modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.4);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:4000;
+
+}
+
+.modalContent{
+
+    width:380px;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.modalButtons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.modalButtons button{
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+}
+
+#modalCancel{
+
+    background:#cbd5e1;
+
+}
+
+#modalOk{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* =======================================================
+   Part 5
+   Responsive / Utility / Animation / Dark Mode
+======================================================= */
+
+/* ===========================
+Utility
+=========================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.active{
+
+    opacity:1;
+
+}
+
+.selected{
+
+    transform:scale(.97);
+
+}
+
+/* ===========================
+Animation
+=========================== */
+
+.flash{
+
+    animation:flashAnimation .3s;
+
+}
+
+@keyframes flashAnimation{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(.94);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+button{
+
+    transition:
+        background .2s,
+        color .2s,
+        transform .15s,
+        box-shadow .2s;
+
+}
+
+button:hover{
+
+    box-shadow:0 6px 14px rgba(0,0,0,.12);
+
+}
+
+button:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media (max-width:1200px){
+
+    #mainContainer{
+
+        grid-template-columns:
+
+            240px
+            1fr
+            240px;
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    #mainContainer{
+
+        grid-template-columns:1fr;
+
+    }
+
+    #leftPanel,
+    #centerPanel,
+    #rightPanel{
+
+        width:100%;
+
+    }
+
+    #bottomBar{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    #historyPanel{
+
+        width:100%;
+
+    }
+
+}
+
+/* ===========================
+Landscape Tablet
+=========================== */
+
+@media (orientation:landscape){
+
+    body{
+
+        overflow:hidden;
+
+    }
+
+    #mainContainer{
+
+        overflow:auto;
+
+        height:calc(100vh - 140px);
+
+    }
+
+}
+
+/* ===========================
+Dark Mode
+=========================== */
+
+@media (prefers-color-scheme:dark){
+
+:root{
+
+    --bg:#0f172a;
+
+    --panel:#1e293b;
+
+    --border:#334155;
+
+    --text:#f8fafc;
+
+    --text-light:#cbd5e1;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+.panel{
+
+    background:var(--panel);
+
+}
+
+.numberInput,
+#gkNumber,
+#gkName,
+#memo{
+
+    background:#0f172a;
+
+    color:white;
+
+    border-color:var(--border);
+
+}
+
+#historyPanel{
+
+    background:#1e293b;
+
+}
+
+.modalContent{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+}
+
+/* ===========================
+Scroll Bar
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#94a3b8;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* ===========================
+End
+=========================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+*{
+
+    user-select:none;
+
+}
+
+input,
+textarea{
+
+    user-select:text;
+
+}
