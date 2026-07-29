@@ -198,9 +198,9 @@ function createHistoryRow(event) {
 
         <span class="history-time">${event.time}</span>
 
-        <span class="history-player">${event.player}</span>
+        <span class="history-shot">${event.shot.type}</span>
 
-        <span class="history-shot">${event.shotType}</span>
+<span class="history-result">${event.shot.result}</span>
 
         <span class="history-result">${event.result}</span>
 
