@@ -2,6 +2,8 @@
 // MatchEvent.js
 // ======================================================
 
+"use strict";
+
 class MatchEvent {
 
     constructor({
@@ -17,6 +19,8 @@ class MatchEvent {
         elapsedSeconds,
 
         player,
+
+        position,
 
         shot,
 
@@ -36,52 +40,136 @@ class MatchEvent {
 
         this.player = player;
 
+        this.position = position;
+
         this.shot = shot;
 
         this.memo = memo;
 
     }
 
-}
+    // ==================================================
+    // Getter
+    // ==================================================
 
-constructor({
+    getId() {
 
-    id,
+        return this.id;
 
-    team,
+    }
 
-    half,
+    getTeam() {
 
-    time,
+        return this.team;
 
-    elapsedSeconds,
+    }
 
-    player,
+    getHalf() {
 
-    position,
+        return this.half;
 
-    shot,
+    }
 
-    memo = ""
+    getTime() {
 
-}) {
+        return this.time;
 
-    this.id = id;
+    }
 
-    this.team = team;
+    getElapsedSeconds() {
 
-    this.half = half;
+        return this.elapsedSeconds;
 
-    this.time = time;
+    }
 
-    this.elapsedSeconds = elapsedSeconds;
+    getPlayer() {
 
-    this.player = player;
+        return this.player;
 
-    this.position = position;
+    }
 
-    this.shot = shot;
+    getPosition() {
 
-    this.memo = memo;
+        return this.position;
+
+    }
+
+    getShot() {
+
+        return this.shot;
+
+    }
+
+    getMemo() {
+
+        return this.memo;
+
+    }
+
+    // ==================================================
+    // Setter
+    // ==================================================
+
+    setMemo(memo) {
+
+        this.memo = memo;
+
+    }
+
+    // ==================================================
+    // JSON
+    // ==================================================
+
+    toJSON() {
+
+        return {
+
+            id: this.id,
+
+            team: this.team,
+
+            half: this.half,
+
+            time: this.time,
+
+            elapsedSeconds: this.elapsedSeconds,
+
+            player: this.player,
+
+            position: this.position,
+
+            shot: this.shot,
+
+            memo: this.memo
+
+        };
+
+    }
+
+    static fromJSON(data) {
+
+        return new MatchEvent({
+
+            id: data.id,
+
+            team: data.team,
+
+            half: data.half,
+
+            time: data.time,
+
+            elapsedSeconds: data.elapsedSeconds,
+
+            player: data.player,
+
+            position: data.position,
+
+            shot: data.shot,
+
+            memo: data.memo
+
+        });
+
+    }
 
 }
