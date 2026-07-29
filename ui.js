@@ -166,11 +166,15 @@ function renderHistory(history = []) {
 
     UI.opponentHistory.innerHTML = "";
 
+    if (!event.shot) {
+    return;
+}
+ 
     history.forEach(event => {
 
         const row = createHistoryRow(event);
 
-        if (event.team === "my") {
+      if (event.team === "my") {
 
             UI.myHistory.prepend(row);
 
