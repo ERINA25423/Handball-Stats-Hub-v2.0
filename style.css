@@ -1717,3 +1717,447 @@ body{
 }
 
 
+/* =======================================
+   MAIN PANELS
+======================================= */
+
+.positionPanel,
+.coursePanel,
+.shotTypePanel,
+.resultPanel{
+
+    background:#1f1f1f;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+.positionPanel{
+
+    grid-area:position;
+
+}
+
+.coursePanel{
+
+    grid-area:course;
+
+}
+
+.shotTypePanel{
+
+    grid-area:type;
+
+}
+
+.resultPanel{
+
+    grid-area:result;
+
+}
+
+.positionPanel h2,
+.coursePanel h2,
+.shotTypePanel h2,
+.resultPanel h2{
+
+    margin:0 0 12px;
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+/* ---------- POSITION ---------- */
+
+.positionGrid{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+.positionButton{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2b2b2b;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+.positionButton.active{
+
+    background:#2979ff;
+
+}
+
+.positionName{
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+.playerNumber{
+
+    width:42px;
+
+    height:32px;
+
+    text-align:center;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#444;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+/* ---------- SHOT COURSE ---------- */
+
+.courseGrid{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    grid-template-rows:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+.courseButton{
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2b2b2b;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.courseButton.active{
+
+    background:#ff9800;
+
+}
+
+/* ---------- SHOT TYPE ---------- */
+
+.shotTypeList{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.shotTypeButton{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2b2b2b;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+.shotTypeButton.active{
+
+    background:#4caf50;
+
+}
+
+/* ---------- RESULT ---------- */
+
+.resultList{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.resultButton{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.resultButton.goal{
+
+    background:#43a047;
+
+}
+
+.resultButton.save{
+
+    background:#1976d2;
+
+}
+
+.resultButton.miss{
+
+    background:#ef6c00;
+
+}
+
+.resultButton.block{
+
+    background:#c62828;
+
+}
+
+/* =======================================
+   MEMO
+======================================= */
+
+.memoPanel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#1f1f1f;
+
+    border-radius:14px;
+
+    padding:14px;
+
+}
+
+.memoPanel h2{
+
+    margin:0 0 10px;
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+.memoPanel textarea{
+
+    flex:1;
+
+    resize:none;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    background:#2b2b2b;
+
+    color:white;
+
+    font-size:16px;
+
+    font-family:inherit;
+
+}
+
+/* =======================================
+   BOTTOM BAR
+======================================= */
+
+.bottomPanel{
+
+    grid-area:bottom;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr)
+        1.4fr
+        1.6fr;
+
+    gap:10px;
+
+}
+
+.bottomButton,
+.saveEventButton,
+.finishButton{
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:white;
+
+}
+
+.bottomButton{
+
+    background:#424242;
+
+}
+
+.saveEventButton{
+
+    background:#2196f3;
+
+}
+
+.finishButton{
+
+    background:#d32f2f;
+
+}
+
+/* =======================================
+   ACTIVE BUTTON
+======================================= */
+
+.teamButton.active,
+.positionButton.active,
+.courseButton.active,
+.shotTypeButton.active,
+.resultButton.active{
+
+    outline:3px solid #ffd54f;
+
+    outline-offset:-3px;
+
+}
+
+/* =======================================
+   iPad Landscape
+======================================= */
+
+@media screen and (orientation:landscape){
+
+    #gamePage{
+
+        overflow:hidden;
+
+    }
+
+    .gameLayout{
+
+        height:100vh;
+
+    }
+
+}
+
+@media screen and (max-width:1024px){
+
+    .titleArea h1{
+
+        font-size:22px;
+
+    }
+
+    .clockArea{
+
+        font-size:28px;
+
+    }
+
+    .positionName{
+
+        font-size:16px;
+
+    }
+
+    .courseButton,
+    .shotTypeButton,
+    .resultButton{
+
+        font-size:16px;
+
+    }
+
+    .bottomButton,
+    .saveEventButton,
+    .finishButton{
+
+        font-size:16px;
+
+    }
+
+}
+
+
