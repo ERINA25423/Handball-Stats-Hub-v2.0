@@ -67,6 +67,22 @@ function boot() {
     cacheDOM();
 
     initializeModules();
+    
+    if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker
+
+        .register("./service-worker.js")
+
+        .then(() => {
+
+            console.log("Service Worker Registered");
+
+        })
+
+        .catch(console.error);
+
+}
 
     createNewMatch();
 
