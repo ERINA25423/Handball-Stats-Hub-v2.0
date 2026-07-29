@@ -608,3 +608,284 @@ document
 /* ==========================================
    END OF MAIN.JS
 ========================================== */
+
+
+/* =====================================
+   GAME UI SELECT
+===================================== */
+
+let selectedPosition = null;
+let selectedCourse = null;
+let selectedShotType = null;
+let selectedResult = null;
+
+/* ---------- POSITION ---------- */
+
+document.querySelectorAll(".positionButton").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document.querySelectorAll(".positionButton")
+            .forEach(b=>b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        selectedPosition =
+            button.querySelector(".positionName").textContent;
+
+    });
+
+});
+
+/* ---------- COURSE ---------- */
+
+document.querySelectorAll(".courseButton").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document.querySelectorAll(".courseButton")
+            .forEach(b=>b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        selectedCourse =
+            button.textContent.trim();
+
+    });
+
+});
+
+/* ---------- SHOT TYPE ---------- */
+
+document.querySelectorAll(".shotTypeButton").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document.querySelectorAll(".shotTypeButton")
+            .forEach(b=>b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        selectedShotType =
+            button.textContent.trim();
+
+    });
+
+});
+
+/* ---------- RESULT ---------- */
+
+document.querySelectorAll(".resultButton").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document.querySelectorAll(".resultButton")
+            .forEach(b=>b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        selectedResult =
+            button.textContent.trim();
+
+    });
+
+});
+
+/* =====================================
+   SAVE EVENT
+===================================== */
+
+document
+    .getElementById("saveEventButton")
+    .addEventListener("click", saveCurrentEvent);
+
+function saveCurrentEvent() {
+
+    if (!selectedPosition) {
+        alert("Select a position.");
+        return;
+    }
+
+    if (!selectedCourse) {
+        alert("Select a shot course.");
+        return;
+    }
+
+    if (!selectedShotType) {
+        alert("Select a shot type.");
+        return;
+    }
+
+    if (!selectedResult) {
+        alert("Select a result.");
+        return;
+    }
+
+    const playerNumber =
+        document
+            .querySelector(".positionButton.active .playerNumber")
+            ?.value || "";
+
+    const eventData = {
+
+        team:
+            document
+                .getElementById("ourSideButton")
+                .classList.contains("active")
+                ? "MY TEAM"
+                : "OPPONENT",
+
+        half:
+            document
+                .getElementById("currentHalf")
+                .textContent,
+
+        time:
+            document
+                .getElementById("gameTimer")
+                .textContent,
+
+        position: selectedPosition,
+
+        player: playerNumber,
+
+        course: selectedCourse,
+
+        shotType: selectedShotType,
+
+        result: selectedResult,
+
+        memo:
+            document
+                .getElementById("memo")
+                .value
+
+    };
+
+    console.log(eventData);
+
+    if (typeof saveEvent === "function") {
+
+        saveEvent(eventData);
+
+    } else {
+
+        eventHistory.push(eventData);
+
+        if (typeof renderHistory === "function") {
+            renderHistory();
+        }
+
+    }
+
+    clearSelection();
+
+}
+
+/* =====================================
+   TEAM SWITCH
+===================================== */
+
+const myTeamButton = document.getElementById("ourSideButton");
+const opponentButton = document.getElementById("opponentSideButton");
+
+myTeamButton.addEventListener("click", () => {
+
+    myTeamButton.classList.add("active");
+    opponentButton.classList.remove("active");
+
+});
+
+opponentButton.addEventListener("click", () => {
+
+    opponentButton.classList.add("active");
+    myTeamButton.classList.remove("active");
+
+});
+
+/* =====================================
+   CHANGE HALF
+===================================== */
+
+const halfButton = document.getElementById("halfButton");
+
+halfButton.addEventListener("click", () => {
+
+    const halfLabel = document.getElementById("currentHalf");
+
+    if (halfLabel.textContent === "1st Half") {
+
+        halfLabel.textContent = "2nd Half";
+
+    } else {
+
+        halfLabel.textContent = "1st Half";
+
+    }
+
+});
+
+/* =====================================
+   HISTORY
+===================================== */
+
+const historyButton = document.getElementById("historyButton");
+
+historyButton.addEventListener("click", () => {
+
+    if (typeof showHistoryPage === "function") {
+
+        showHistoryPage();
+        return;
+
+    }
+
+    if (typeof App !== "undefined" && App.showPage) {
+
+        App.showPage("historyPage");
+        return;
+
+    }
+
+    const historyPage = document.getElementById("historyPage");
+
+    if (historyPage) {
+
+        document
+            .querySelectorAll(".page")
+            .forEach(page => page.classList.remove("active"));
+
+        historyPage.classList.add("active");
+
+    }
+
+});
+
+/* =====================================
+   END MATCH
+===================================== */
+
+const finishButton = document.getElementById("finishMatchButton");
+
+finishButton.addEventListener("click", () => {
+
+    if (!confirm("End this match and save?")) {
+
+        return;
+
+    }
+
+    if (typeof finishMatch === "function") {
+
+        finishMatch();
+        return;
+
+    }
+
+    if (typeof saveCurrentMatch === "function") {
+
+        saveCurrentMatch();
+
+    }
+
+});
