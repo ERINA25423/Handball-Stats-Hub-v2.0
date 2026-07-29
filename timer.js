@@ -232,6 +232,10 @@ function resetTimer() {
 
     Timer.startTimestamp = 0;
 
+    Timer.finished = false;
+
+    Timer.warningPlayed = false;
+
     updateTimerUI();
 
 }
@@ -465,6 +469,11 @@ function restoreTimerState() {
 
     updateTimerUI();
 
+    if (data.running) {
+
+    startTimer();
+
+}
 }
 
 // =======================================================
