@@ -740,7 +740,7 @@ OK
 FIREBASE
 ========================== -->
 
-<script type="module" src="firebase.js"></script>
+<script src="firebase.js"></script>
 
 <!-- ==========================
 APPLICATION
@@ -752,6 +752,14 @@ APPLICATION
 
 <script src="analysis.js"></script>
 
+<script src="ui.js"></script>
+
+<script src="models/Player.js"></script>
+<script src="models/Team.js"></script>
+<script src="models/Shot.js"></script>
+<script src="models/MatchEvent.js"></script>
+<script src="models/Match.js"></script>
+  
 <script src="game.js"></script>
 
 <script src="main.js"></script>
@@ -765,8 +773,6 @@ PWA
 if ("serviceWorker" in navigator) {
 
 window.addEventListener("load", () => {
-
-navigator.serviceWorker.register("./service-worker.js")
 
 .then(() => {
 
