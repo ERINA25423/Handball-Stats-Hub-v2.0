@@ -272,11 +272,15 @@ boot = function () {
 
 function beforeExit() {
 
-    if (typeof saveAuto === "function") {
+   if (window.Game?.getCurrentMatch) {
 
-        saveAuto();
+    saveCurrentMatch(
 
-    }
+        window.Game.getCurrentMatch()
+
+    );
+
+}
 
 }
 
